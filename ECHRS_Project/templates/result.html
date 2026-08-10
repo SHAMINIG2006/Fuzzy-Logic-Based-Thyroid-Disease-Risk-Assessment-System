@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostic Result</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background-color: #0b111e; color: #ffffff; }
+        .dashboard-title { color: #4ed9f8; text-align: center; margin-top: 40px; }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        /* Circular Progress Chart */
+        .risk-circle {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 15px solid #1c2536;
+            border-top: 15px solid #2ecc71; /* Green color for Low Risk */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #4ed9f8;
+        }
+
+        .risk-status {
+            color: #2ecc71;
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .clinical-guidance {
+            background: rgba(46, 204, 113, 0.1);
+            border-left: 4px solid #2ecc71;
+            padding: 20px;
+            text-align: left;
+            font-size: 0.9rem;
+            border-radius: 5px;
+        }
+
+        .btn-back {
+            background: transparent;
+            border: 1px solid #4ed9f8;
+            color: #4ed9f8;
+            margin-top: 25px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2 class="dashboard-title">ThyroidAI Diagnostic Analysis</h2>
+
+    <div class="row mt-5 justify-content-center">
+        <div class="col-md-6">
+            <div class="glass-card">
+                
+                <div class="risk-circle">
+                    {{ score }}%
+                </div>
+
+                <h3 class="risk-status">{{ result }}</h3>
+
+                <div class="clinical-guidance">
+                    <strong style="color: #2ecc71;">Clinical Guidance:</strong><br>
+                    {{ explanation }}
+                </div>
+
+                <a href="/" class="btn btn-back px-5">Go Back to Dashboard</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
